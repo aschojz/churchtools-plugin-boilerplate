@@ -5,6 +5,6 @@ With this project you get a boilerplate for building your own plugin for [Church
 In the `.env` you can configure the necessary constants to start with your project. With that, the ChurchTools-Client is ready to go and you can start using the ChurchTools-API.
 Also installed is pinia and vue-router, prettier and eslint.
 
-So: Happy Coding
+So: Happy coding
 
 For questions concerning the API reach out in the [Forum](https://forum.church.tools).
