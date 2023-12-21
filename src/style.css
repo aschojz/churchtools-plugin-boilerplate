@@ -13,16 +13,10 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 }
-
-html {
-    font-size: 62.5%;
-}
 body {
-    font-size: 1.4rem;
     margin: 0;
-    display: flex;
-    place-content: center;
-    width: 100vw;
+    width: 100%;
+    overscroll-behavior-y: none;
 }
 
 @media (prefers-color-scheme: light) {

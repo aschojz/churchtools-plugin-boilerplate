@@ -11,7 +11,6 @@ const isDev = computed(() => import.meta.env.MODE === 'development');
 </template>
 <style scoped>
 .navbar {
-    width: 100vw;
     height: 56px;
     background: #0e204b;
 }
