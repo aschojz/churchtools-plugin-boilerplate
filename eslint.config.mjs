@@ -1,27 +1,18 @@
-import { defineConfig } from 'eslint/config';
+import eslint from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginVue from 'eslint-plugin-vue';
+
+import typescriptEslint from 'typescript-eslint';
 import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all,
-});
-
-export default defineConfig([
+export default typescriptEslint.config(
+    { ignores: ['*.d.ts', '**/coverage', '**/dist'] },
     {
-        extends: compat.extends(
-            'eslint:recommended',
-            'plugin:vue/vue3-recommended',
-            '@vue/typescript/recommended',
-            '@vue/prettier'
-        ),
-
+        extends: [
+            eslint.configs.recommended,
+            ...typescriptEslint.configs.recommended,
+            ...eslintPluginVue.configs['flat/recommended'],
+        ],
         languageOptions: {
             globals: {
                 ...globals.node,
@@ -35,4 +26,5 @@ export default defineConfig([
             'vue/no-v-html': 'off',
         },
     },
-]);
+    eslintConfigPrettier
+);
